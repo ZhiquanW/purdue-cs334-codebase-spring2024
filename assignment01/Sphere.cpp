@@ -26,6 +26,9 @@ bool Sphere::hit(const Ray &_r, double _min, double _max, HitInfo &_info) const 
         if (tmp > _min && tmp < _max) {
             _info.t = tmp;
             _info.pos = _r.targetPos(tmp);
+            if (_info.pos[1] < center[1]){
+                return false;
+            }
             _info.normal = (_info.pos - center_t) / this->radius;
             _info.material_ptr = this->material_ptr;
             return true;
@@ -34,6 +37,9 @@ bool Sphere::hit(const Ray &_r, double _min, double _max, HitInfo &_info) const 
         if (tmp > _min && tmp < _max) {
             _info.t = tmp;
             _info.pos = _r.targetPos(_info.t);
+            if (_info.pos[1] < center[1]){
+                return false;
+            }
             _info.normal = (_info.pos - center_t) / this->radius;
             _info.material_ptr = this->material_ptr;
             return true;
