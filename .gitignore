@@ -39,4 +39,5 @@ cmake-build-debug/
 # macos folder
 .DS_Store
 *.gif
+!assignment02/*.gif
 .history/
